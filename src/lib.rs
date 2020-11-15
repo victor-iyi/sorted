@@ -13,6 +13,7 @@
 // limitations under the License.
 
 mod bubblesort;
+mod insertionsort;
 
 /// Base `sorted` trait which is implemented by all in built and user-defined sorting algorithms.0
 pub trait Sorter {
