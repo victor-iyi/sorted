@@ -1,3 +1,5 @@
+#![warn(rust_2018_idioms, missing_debug_implementations)]
+
 // Copyright 2020 Victor I. Afolabi
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,40 +14,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-mod bubblesort;
-mod insertionsort;
+pub mod bubblesort;
+pub mod insertionsort;
+pub mod selectionsort;
+pub mod stdsorter;
 
 /// Base `sorted` trait which is implemented by all in built and user-defined sorting algorithms.0
 pub trait Sorter {
+    /// All sorting algorithm must implement `sort`.
     fn sort<T: Ord>(&self, slice: &mut [T]);
 }
 
 /// Generic function to sort a given slice.
 pub fn sort<S: Sorter, T: Ord>(obj: S, slice: &mut [T]) {
     obj.sort(slice);
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    struct StdSorter;
-
-    impl Sorter for StdSorter {
-        fn sort<T: Ord>(&self, slice: &mut [T]) {
-            slice.sort();
-        }
-    }
-
-    #[test]
-    fn std_sorter() {
-        // Unsorted vector of numbers.
-        let mut unsorted = vec![5, 2, 1, 3, 4];
-
-        // Sort unsorted numbers.
-        sort(StdSorter, &mut unsorted);
-
-        // Check if sorting works.
-        assert_eq!(unsorted, &[1, 2, 3, 4, 5]);
-    }
 }
