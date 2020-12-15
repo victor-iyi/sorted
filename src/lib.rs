@@ -14,6 +14,7 @@
 
 mod bubblesort;
 mod insertionsort;
+mod selectionsort;
 
 /// Base `sorted` trait which is implemented by all in built and user-defined sorting algorithms.0
 pub trait Sorter {
