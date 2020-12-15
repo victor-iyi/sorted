@@ -1,3 +1,5 @@
+#![warn(rust_2018_idioms, missing_debug_implementations)]
+
 // Copyright 2020 Victor I. Afolabi
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +21,7 @@ pub mod stdsorter;
 
 /// Base `sorted` trait which is implemented by all in built and user-defined sorting algorithms.0
 pub trait Sorter {
+    /// All sorting algorithm must implement `sort`.
     fn sort<T: Ord>(&self, slice: &mut [T]);
 }
 

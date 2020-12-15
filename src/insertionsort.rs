@@ -64,7 +64,7 @@ use super::Sorter;
 ///  2  3  4  5  6* 7  9  1
 ///  1* 2  3  4  5  6  7  9
 ///```
-///
+#[derive(Debug)]
 pub struct InsertionSort {
   smart: bool,
 }

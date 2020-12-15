@@ -68,6 +68,7 @@ use super::Sorter;
 /// ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
 ///```
 ///
+#[derive(Debug)]
 pub struct BubbleSort;
 
 // Implementation of BubbleSort
