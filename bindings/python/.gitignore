@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[co]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info
+venv/
+
+
+/target
+Cargo.lock

@@ -67,25 +67,30 @@ use super::Sorter;
 /// ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
 /// ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
 ///```
-///
 #[derive(Debug)]
-pub struct BubbleSort;
+pub struct SelectionSort;
 
-// Implementation of BubbleSort
-impl Sorter for BubbleSort {
+// Implementation of SelectionSort
+impl Sorter for SelectionSort {
   fn sort<T: Ord>(&self, slice: &mut [T]) {
-    let mut swapped = true;
+    for unsorted in 0..slice.len() {
+      // Continually check for smallest element in the remaining unsorted slice.
+      let smallest_in_rest = slice[unsorted..]
+        .iter()
+        .enumerate()
+        .min_by_key(|&(_, v)| v)
+        .map(|(i, _)| i)
+        .expect("Slice is non-empty.");
 
-    // Loop till we are no longer swapping.
-    while swapped {
-      // If swapped stay false, we are done sorting.
-      swapped = false;
-
-      for i in 1..slice.len() {
-        if slice[i - 1] > slice[i] {
-          slice.swap(i - 1, i);
-          swapped = true;
-        }
+      // let mut smallest_in_rest = unsorted;
+      // for i in (unsorted + 1)..slice.len() {
+      //   // Check for the smallest element in the remainder.
+      //   if slice[i] < slice[smallest_in_rest] {
+      //     smallest_in_rest = i;
+      //   }
+      // }
+      if unsorted != smallest_in_rest {
+        slice.swap(unsorted, smallest_in_rest);
       }
     }
   }
@@ -96,12 +101,13 @@ mod tests {
   use super::*;
 
   #[test]
-  fn bubble_sort() {
+  #[ignore]
+  fn selection_sort() {
     // Unsorted vector of numbers.
     let mut unsorted = vec![5, 2, 1, 3, 4];
 
     // Sort unsorted numbers.
-    BubbleSort.sort(&mut unsorted);
+    SelectionSort.sort(&mut unsorted);
 
     // Check if sorting works.
     assert_eq!(unsorted, &[1, 2, 3, 4, 5]);
