@@ -14,18 +14,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod bubblesort;
-pub mod insertionsort;
-pub mod selectionsort;
-pub mod stdsorter;
+mod bubblesort;
+mod heapsort;
+mod insertionsort;
+mod quicksort;
+mod selectionsort;
+mod stdsorter;
 
 /// Base `sorted` trait which is implemented by all in built and user-defined sorting algorithms.0
-pub trait Sorter {
-    /// All sorting algorithm must implement `sort`.
-    fn sort<T: Ord>(&self, slice: &mut [T]);
+pub trait Sorter<T: Ord> {
+  /// All sorting algorithm must implement `sort`.
+  fn sort(&self, slice: &mut [T]);
 }
 
-/// Generic function to sort a given slice.
-pub fn sort<S: Sorter, T: Ord>(obj: S, slice: &mut [T]) {
-    obj.sort(slice);
-}
+pub use bubblesort::BubbleSort;
+pub use heapsort::HeapSort;
+pub use insertionsort::InsertionSort;
+pub use quicksort::QuickSort;
+pub use selectionsort::SelectionSort;
+pub use stdsorter::StdSorter;
