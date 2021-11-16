@@ -1,0 +1,11 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between diffferent editors and IDEs
+# editorconfig.org
+
+[*.py]
+indent_style = space
+indent_size = 2
+
+[*.cfg]
+indent_style = space
+indent_size = 2
