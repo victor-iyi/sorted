@@ -6,7 +6,7 @@ description = "Collection of common sorting algorithms."
 homepage = "https://github.com/victor-iyi/sorted"
 repository = "https://github.com/victor-iyi/sorted"
 keywords = ["sort", "algorithm"]
-readme = ".README.md"
+readme = "README.md"
 license = "MIT OR Apache-2.0"
 edition = "2018"
 
@@ -15,9 +15,5 @@ edition = "2018"
 [lib]
 name = "sorted"
 
-
-[dependencies]
-
-
 [dev-dependencies]
-pretty_assertions = "0.6.1"
+pretty_assertions = "1.0.0"
