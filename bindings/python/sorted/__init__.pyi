@@ -23,11 +23,26 @@
   - `quick_sort`:     Worst case: `O(n^2)` | Best case: `O(n)`
 """
 
-import sorted
 from .sorted import *
 
 
-__all__ = sorted.__all__
-__doc__ = sorted.__doc__
+def add_5(value: int) -> int:
+    """Add 5 to a given value.
 
-def add_5(value: int) -> int: ...
+    Args:
+      value (int): Value to add 5 to.
+
+    Returns:
+      int: Value + 5.
+    """
+
+
+def greet(name: str) -> str:
+    """Greet a given name.
+
+    Args:
+      name (str): Name to greet.
+
+    Returns:
+      str: Greeting in form of: "Hello, {name}!".
+    """

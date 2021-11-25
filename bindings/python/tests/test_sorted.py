@@ -14,7 +14,7 @@
 
 import pytest
 
-from sorted import add_5
+from sorted import add_5, greet
 
 
 @pytest.mark.parametrize(
@@ -28,3 +28,17 @@ from sorted import add_5
 )
 def test_add_5(value: int, expected: int) -> None:
     assert add_5(value) == expected
+
+
+@pytest.mark.parametrize(
+  ("name", "expected"),
+  (
+   ("John", "Hello, John!"),
+   ("Jane", "Hello, Jane!"),
+   ("Jimmy", "Hello, Jimmy!"),
+   ("Smith", "Hello, Smith!"),
+   ("John Doe", "Hello, John Doe!"),
+  )
+)
+def test_greet(name: str, expected: str) -> None:
+    assert greet(name) == expected

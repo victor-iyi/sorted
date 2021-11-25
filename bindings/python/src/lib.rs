@@ -20,6 +20,16 @@ fn add_5(value: i32) -> i32 {
   value + 5
 }
 
+#[pyfunction]
+fn greet(name: &str) -> String {
+  format!("Hello, {}!", name)
+}
+
+// #[pyfunction]
+// fn sort<T: Clone + Ord>(values: &mut [T]) {
+//   values.sort();
+// }
+
 // #[pyfunction]
 // fn std_sorter<T>(slice: &mut [T])
 // where
@@ -75,6 +85,9 @@ fn add_5(value: i32) -> i32 {
 ///
 #[pymodule]
 fn sorted(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
+  // Test functions.
   m.add_function(wrap_pyfunction!(add_5, m)?)?;
+  m.add_function(wrap_pyfunction!(greet, m)?)?;
+  // m.add_function(wrap_pyfunction!(sort, m)?)?;
   Ok(())
 }
