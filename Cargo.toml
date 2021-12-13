@@ -1,6 +1,6 @@
 [package]
 name = "sorted"
-version = "0.1.0"
+version = "0.4.2"
 authors = ["Victor I. Afolabi <javafolabi@gmail.com>"]
 description = "Collection of common sorting algorithms."
 homepage = "https://github.com/victor-iyi/sorted"
@@ -14,6 +14,7 @@ edition = "2018"
 
 [lib]
 name = "sorted"
+path = "src/lib.rs"
 
 [dev-dependencies]
 pretty_assertions = "1.0.0"

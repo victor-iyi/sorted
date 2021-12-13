@@ -33,3 +33,8 @@ pub use insertionsort::InsertionSort;
 pub use quicksort::QuickSort;
 pub use selectionsort::SelectionSort;
 pub use stdsorter::StdSorter;
+
+/// Sort a collection of item with type `T`.
+pub fn sort<T>(items: &mut [T]) where T: Clone + Ord {
+  items.sort();
+}
