@@ -29,9 +29,7 @@ classifier = [
 name = "sorted"
 crate-type = ["cdylib"]
 
-[dependencies.sorted]
-version = "*"
-path = "../../"
 
 [dependencies]
+sorted = { path = "../../" }
 pyo3 = { version = "0.15.0", features = ["extension-module"] }

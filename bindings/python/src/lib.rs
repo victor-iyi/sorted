@@ -13,6 +13,7 @@
 // limitations under the License.
 
 use pyo3::prelude::*;
+use pyo3::types::PyList;
 use pyo3::wrap_pyfunction;
 
 #[pyfunction]
@@ -23,6 +24,20 @@ fn add_5(value: i32) -> i32 {
 #[pyfunction]
 fn greet(name: &str) -> String {
   format!("Hello, {}!", name)
+}
+
+#[pyfunction]
+#[pyo3(name="sort")]
+fn sort_py(item: &PyList) -> PyResult<Vec<i32>> {
+  let mut items: Vec<i32> = item.extract().unwrap();
+  sorted::sort(&mut items);
+  Ok(items)
+}
+
+#[pyfunction]
+fn sort(mut item: Vec<i32>) -> PyResult<Vec<i32>> {
+  sorted::sort(&mut item);
+  Ok(item)
 }
 
 // #[pyfunction]
@@ -88,6 +103,7 @@ fn sorted(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
   // Test functions.
   m.add_function(wrap_pyfunction!(add_5, m)?)?;
   m.add_function(wrap_pyfunction!(greet, m)?)?;
-  // m.add_function(wrap_pyfunction!(sort, m)?)?;
+  m.add_function(wrap_pyfunction!(sort_py, m)?)?;
+  m.add_function(wrap_pyfunction!(sort, m)?)?;
   Ok(())
 }

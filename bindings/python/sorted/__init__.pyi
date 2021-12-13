@@ -46,3 +46,13 @@ def greet(name: str) -> str:
     Returns:
       str: Greeting in form of: "Hello, {name}!".
     """
+
+def sort(item: list) -> list:
+    """Sort a given list item.
+
+    Args:
+      item (list): List to sort.
+
+    Returns:
+      list: Sorted list.
+    """
