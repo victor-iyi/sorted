@@ -18,3 +18,9 @@ path = "src/lib.rs"
 
 [dev-dependencies]
 pretty_assertions = "1.0.0"
+
+# [workspace]
+# members = [
+#   "bindings/javascript",
+#   "bindings/python",
+# ]
